@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+.container-fluid{
+    background-color: yellow;
+
+}
+ul.nav{
+    list-style: none;
+}
+ul.nav li.nav-item a{
+    text-decoration: none;
+}
+li.nav-item{
+    transition: 0.4s;
+    text-decoration: none;
+
+}
+li.nav-item a:hover{
+    background-color: gray;
+    padding: 3px;
+}

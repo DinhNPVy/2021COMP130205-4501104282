@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARO</title>
+    <link rel="stylesheet" href="../css/caro.css">
+    <script src="../jquery/jquery.js"></script>
+    <script>
+     /*   $(document).ready(function()
+            {
+                // chọn body cũng dc
+                $("#ten").html("web");
+            }
+        );
+     */  
+    
+   </script>
+    <script>
+    $(function(){
+        
+           
+            $("td").hover(function(){
+            $(this).css({
+                'box-shadow': '0 0 7px grreen'
+                });
+            });
+            $("td").mouseout(function(){
+            $(this).css({
+                'box-shadow': '0 0 0 red'
+                });
+            });
+            let vaLue = "X";
+            $("td").click(function(){
+            if($(this).html() == ""){
+                $(this).html(vaLue);
+                vaLue = vaLue == "X" ? "O" : "X";
+                }
+            });
+
+
+        $("#btnShow").click(function(){
+            $("#tblBanCo").show(1000);
+        });
+        $("#btnHide").click(function(){
+            $("#tblBanCo").hide(1000);
+        });
+        $("#btnToggle").click(function(){
+            $("#tblBanCo").toggle(1000);
+        });
+        
+    });
+    </script>
+</head>
+<body>
+    <button type="button" id="btnShow">SHOW</button>
+    <button type="button" id="btnHide">HIDE</button>
+    <button type="button" id="btnToggle">TOGGLE</button>
+
+        <table id="tblBanCo">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+       
+        
+        </table>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../font/Montserrat-MediumItalic.ttf');
+}
+h2{
+    font-family: Montserrat;
+    
+}
+.mytextbox{
+    color: #99ff33;
+    background-color: #006699;
+    border: 1px solid #996633;
+    width: 300px;
+
+}
+table{
+    border: 5px groove #993366;
+    background-color: #FFCCCC;
+    color: #003399;
+    margin: 0px auto;
+}
+table td{
+    border: 1px solid #cc9999;
+    font-size: 20px;
+    font: lighter;
+}
+.mybutton{
+    text-align: center;
+}

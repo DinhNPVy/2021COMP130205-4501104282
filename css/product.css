@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    text-align: center;
+    border: 3px solid lightskyblue;
+}
+.hh-box{
+    width: 200px;
+    display: inline-block ;
+    position: relative;
+    text-align: center;
+    margin: 25px 5px 5px 5px;
+    padding: 15px;
+    box-shadow: 0 0 5px silver;
+}
+.hh-box:hover{
+    box-shadow: 0 0 5px aqua;
+}
+img{
+    display: inline;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+}
+.sale{
+    position: absolute;
+    background-color: gold;
+    transform: rotate(45deg);
+    top: 14px;
+    left: 79%;
+    font-size: 20px;
+    color:red;
+    transition: 0.4s;
+   
+}
+.hh-box:hover .sale{
+    opacity: 0.4;
+}
+.icon{
+    color: gold;
+    transition: 0.5s;
+    
+}
+.hh-box:hover .icon{
+   opacity: 0.4;
+}
+.name{
+
+    
+    font-weight: bold;
+    left: 8px;
+    bottom: 8px;
+}
+.price{
+    font-weight: bold;
+    left: 8px;
+    bottom: 8px;
+}
+

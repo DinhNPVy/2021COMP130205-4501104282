@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../jquery/jquery.js">
+    <link rel="stylesheet" href="../js/bootstrap.js">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/formjs.css">
+    
+    <title>Form</title>
+    <script>
+        // js
+             function getLogin()
+            {
+                let User = document.getElementById("txtUser").value;
+                let passWord = document.getElementById("txtPass").value;
+                if(User == ""){
+                   // window.alert("Bạn nhập chưa nhập đủ thông tin");
+                   document.getElementById("errorname").innerHTML = "Vui lòng nhập Username!";
+                }else{
+                    document.getElementById("errorname").innerHTML = "";
+                }
+                if(passWord == "" ){
+                   // window.alert("Bạn nhập chưa nhập đủ thông tin");
+                   document.getElementById("errorpass").innerHTML = "Vui lòng nhập Password!";
+                }else{
+                    document.getElementById("errorpass").innerHTML = "";
+                }
+                
+                if(User && passWord){
+                    logIn = "Xin chào "+User+"!";
+                    document.getElementById("kq").innerHTML = logIn;
+                    
+                }
+               
+            }
+        
+        // jquery
+        
+       /* function checkDangNhap(event, _min, _max ){
+            event.preventDefault();
+            
+            var mess = $("#errorText");
+
+            var user = $("#txtUser").val();
+
+            if(user == ''){
+                $('#txtUser').css('background-color', 'red');
+                mess.html(mess.html() + 'Vui lòng nhập đủ thông tin!');
+            } else if((user.length > 0 && user.length < _min) || user.length > _max){
+                $('#txtUser').css('background-color', 'red');
+                mess.html(mess.html()+'Usename từ 5-10 kí tự!');
+            } else{
+                mess.html(mess.html() + 'Username: '+ user + ' ');
+            }
+
+            
+        }
+        function checkPass(event){
+            envent.preventDefault();
+
+            var pass = $('#txtPass').val();
+
+            var mess = $('#errorText');
+
+            if(pass == ''){
+                $('#txtPass').css('background-color', 'red');
+                mess.html(mess.html() +'Vui lòng nhập mật khẩu!');
+            } else{
+                mess.html(mess.html() + "Password: "+ Array(pass.length + 1).join("*")+ '');
+            }
+        }
+       
+
+        btnLogin.click(function Validate(){
+            var mess = $('errorText');
+
+            mess.html('');
+
+            checkDangNhap(event,5,10);
+
+            checkPass(event);
+
+        }); 
+        */
+        
+    </script>
+</head>
+<body>
+    <div class="container border border-info" style="height: auto; width: 40%; padding-top: 10%; margin-top: 5%; padding-left: 12%;" >
+        <form action="/login/signin" method="POST" id="loginForm" novalidate="novalidate" name="dangnhap" style="text-align:justify;">
+            <h3>Sign in <i class="fa fa-sign-in"></i></h3>
+            <div class="form-group">
+                <div class="row m-1" >    
+                    <div class="col-lg-7 " style=" height: 30px;" >
+                        <div class="fa fa-user" aria-hidden="true"  >
+                            <!--aotufocus: trình duyệt sẽ tự động focus vào trường ' ' sau khi tải xong trang web -->
+                            <input type="email" id="txtUser" autofocus placeholder="Username" >
+                            <span id="errorname" class="error"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row m-1">
+                    <div class="col-lg-7 "  style=" height: 30px;">
+                        <i class="fa fa-lock" aria-hidden="true">
+                            <input type="password" id="txtPass" placeholder="Password">
+                            <span id="errorpass" class="error"></span>
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <div class="row m-1">
+                    <div class="col-lg-6">
+                        <label class="form-check-label">
+                            <input name = "remember-m" type="checkbox" class="form-check-input"> Remember me
+                        </label>
+                        <a onclick = "checkForm()" href="#" data-hind="click: $root.ToggleResetForm" class="btn btn-link btn-sm btn-lg" style="padding-right: 0; padding-left: 0;">
+                            Have you forgotten your password?
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <div class="row m-1">
+                    <div class="col-lg-4">
+                        
+                        <button onClick=" getLogin();
+
+                          return false;" type="submit" id="btnLogin" class="btn btn-primary btn-lg btn-block btn-rounded" style="padding-right: 18px; padding-left: 18px;">Login </button>
+                        
+                    </div>
+                </div>
+            </div>
+            <!--<div class="form-group form-check">
+                <div class="row m-1">
+                    <div class="text-danger" id="LoginErrorMessage" style="display: block; font-style: oblique;">
+                        
+                        Wrong usename or/and password.
+                        Failed to log in
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <form action="/login/resetPassword" id="resetPasswordForm" method="POST" style="display: none;" novalidate="novalidate">
+            <h3>
+                Reset your password
+            </h3>
+            <p>
+                Instructions on how to change the password will be sent to the user's email.
+            </p>
+            <div class="form-group">
+                <div class="row m-1">    
+                    <div class="col-lg-3 " style=" height: 30px;" >
+                        <div class="fa fa-user" aria-hidden="true" >
+                            <input type="email" id="txtUser" placeholder="Username">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row m-1">
+                    <div class="col-lg-3  "  style=" height: 30px;">
+                        <i class="fa fa-lock" aria-hidden="true">
+                            <input type="password" id="txtPass" placeholder="Password">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <div class="row m-1">
+                    <div class="col-lg-3">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"> Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-1">
+                <div class="col-sm-2">
+                    <a href="#" data-hind="click: $root.ToggleResetForm" class="btn btn-link btn-sm btn-lg" style="padding-right: 0; padding-left: 0;">
+                       Cancel
+                    </a>
+                    <button type="submit" id="btnLogin" class="btn btn-primary btn-lg btn-block btn-rounded"> Reset your password  </button>
+                    
+                </div>
+            </div> -->
+        </form>
+        <div id = "kq">
+            
+        </div>
+        <div id="errorText" ></div>
+    </div>
+    
+    
+    
+</body>
+</html>

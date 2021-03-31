@@ -1,0 +1,22 @@
+button{
+    text-transform: none;
+    overflow: visible;
+  
+}
+.btn{
+    position: relative;
+    text-align: center;
+    transition: all .2s ease-in-out;
+    border: 1px solid transparent;
+}
+.btn-rounded{
+    border-radius: 20px;
+}
+.btn-block{
+    display: block;
+    width: 100%;
+}
+.error{
+    color: crimson;
+}
+

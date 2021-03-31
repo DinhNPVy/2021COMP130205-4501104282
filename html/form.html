@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/form1.css">
+    <link rel="stylesheet" href="/jquery/jquery.js">
+    <title> Đăng Ký Thành Viên</title>
+
+    <script>
+        function checkDangNhap(event, _min, _max ){
+            event.preventDefault();
+            
+            var mess = $("$errorText");
+
+            var user = $("#tendn").val();
+
+            if(user == ""){
+                $("#tendn").css("background-color", "red");
+                mess.html(mess.html() + "Vui lòng nhập đủ thông tin!");
+            } else if((user.length > 0 && user.length < _min) || user.length > _max){
+                $("#tendn").css("background-color", "red");
+                mess.html(mess.html()+"Usename từ 5-10 kí tự!");
+            } else{
+                mess.html(mess.html() + "Username: "+ user + " ");
+            }
+
+            
+        }
+        function checkPass(event){
+            envent.preventDefault();
+
+            var pass = $("#mk").val();
+
+            var mess = $("#errorText");
+
+            if(pass == ""){
+                $("#mk").css("background-color", "red");
+                mess.html(mess.html()+"Vui lòng nhập mật khẩu!");
+            } else{
+                mess.html(mess.html() + "Password: "+ Array(pass.length + 1).join("*")+ "";)
+            }
+        }
+
+        function checkEmail(even){
+            event.preventDefault();
+
+            var mess = $("#errorText");
+
+            var letter = /^([a-zA-Z0-9]) + \@(([a-zA-Z0-9\-])+\.) + ([a-zA-Z0-9]{2,4})+$/
+
+            var email = $("#email").val();
+
+            if(email == ""){
+                $("#email").css("background-color", "red");
+                mess.html(mess.html() + "Vui lòng nhập Email!")
+            } else if( !email.match(letter)){
+                $("#email").css("background-color", "red");
+                mess.html(mess.html() + "Email không chứa kí tự đặc biệt!");
+            } else mess.html(mess.html() + "Email: "+ email + "");
+        }
+        
+    </script>
+</head>
+<body>
+    
+        <form id="form" action="/signup/signup" method="POST" >
+            <div id=" errorText"></div>
+            <table cellpadd="1" border="1" width="500px" cellspace="0">
+                <caption>
+                    <h2>ĐĂNG KÝ THÀNH VIÊN CLB YÊU NHẠC </h2>
+                    <div class="fa fa-music"></div>
+                    <div class="fa fa-music"></div>
+                    <div class="fa fa-music"></div>
+                </caption>
+                <tr>
+                    <td >Họ và Tên</td>
+                    <td ><input name="user"  class="mytextbox"></td>
+                </tr>
+                <tr>
+                    <td>Tên đăng nhập</td>
+                    <td><input id="tendn" name="username"  class="mytextbox" placeholder="Username"></td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu</td>
+                    <td><input id="mk" type="password" name="pass"  class="mytextbox" placeholder="Password"></td>
+                </tr>
+                <tr>
+                    <td>Gõ lại mật khẩu</td>
+                    <td><input type="password" name="pass"  class="mytextbox"></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td>
+                        <input id="email" type="email" name="email" placeholder="@gmail.com">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phái</td>
+                    <td>
+                        
+                        
+                            <input type="radio" name="GT" /> NAM
+                            <input type="radio" name="GT" /> NỮ
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tuổi</td>
+                    <td><input id="tuoi" type="number" name="tuoi" min="18" max="45" step="1" value='' class="mytextbox" placeholder="
+                        Pick up your age"></td>
+                </tr>
+                <tr>
+                    <td>Ngoại ngữ</td>
+                    <td>
+                        <input type="checkbox" name="NN"  /> ANH
+                        <input type="checkbox" name="NN"  /> PHÁP
+                        <input type="checkbox" name="NN"  /> HOA
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Nghề Nghiệp
+                    </td>
+                    <td>
+                        <select name="NgheNghiep" id="nghenghiep">
+                            <option value="0"  class="mytextbox">Bạn làm nghề gì</option>
+                            <option value="1"  class="mytextbox">Học sinh - Sinh viên</option>
+                            <option value="2"  class="mytextbox">Giáo viên</option>
+                            <option value="3"  class="mytextbox">Học sinh - Sinh viên</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td>
+                        
+                        <input type="text" id="txt_ide" list="ide" />
+                        <datalist id="ide">
+                            <option value="Tp.HCM" >Thành Phố Hồ Chí Minh</option>
+                            <option value="Tp.HN" >Thành Phố Hà Nội</option>
+                            <option value="Tp.HN" >Thành Phố Hồng Ngự</option>
+                            <option value="Tp.BR" >Thành Phố Bà Rịa</option>
+                            <option value="Tp.BL" >Thành Phố Bạc Liêu</option>
+                            <option value="Tp.BL" >Thành Phố Bảo Lộc</option>
+                            <option value="Tp.BG" >Thành Phố Bắc Giang</option>
+                            <option value="Tp.BK" >Thành Phố Bắc Kạn</option>
+                            <option value="Tp.BN" >Thành Phố Bắc Ninh</option>
+                            <option value="Tp.CL" >Thành Phố Cao Lãnh</option>
+
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hình</td>
+                    <td><input type="file" name="hinh"  class="mytextbox"></td>
+                </tr>
+                
+                
+                <tr>
+                    <td>
+                        Sở Thích
+                    </td>
+                    <td>
+                        <textarea name="sothich" id="st" cols="100" rows="10"  class="mytextbox"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                   <td colspan="2" class="mybutton">
+                    <button id="dk" type="submit" >Đăng ký</button> <button id="lamlai">Làm lại</button>
+                   </td> 
+                </tr>
+            </table>
+           
+        </form>
+        
+    
+</body>
+</html>
